@@ -1114,7 +1114,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: ac44e4c44bb24694b822b846a69bb738,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.041911
+      value: 3.38
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: ac44e4c44bb24694b822b846a69bb738,
         type: 3}
@@ -1423,6 +1423,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Apple
+      objectReference: {fileID: 0}
+    - target: {fileID: 7758100921576837250, guid: 12b018230377a294eb88fb91a6fd8882,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7758100921576837273, guid: 12b018230377a294eb88fb91a6fd8882,
         type: 3}

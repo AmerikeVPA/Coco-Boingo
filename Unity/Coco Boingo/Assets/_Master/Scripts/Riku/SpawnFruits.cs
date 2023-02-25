@@ -30,7 +30,13 @@ public class SpawnFruits : MonoBehaviour
         {
             if (randomList == i) //Si el numero aleatorio y el valor de i(osea el numero del ciclo en el que nos encontramos) son diferentes entre si, se realiza la funcion
             {
-                Instantiate(fruitPrefab, spawnPoints[i].position, Quaternion.identity); //Crea un objeto en la posicion del objeto asignado en la lista, dependiendo del valor de i
+                GameObject fruit = ObjectPooling.instance.GetPooledObject();
+                if (fruit != null)
+                {
+                    fruit.transform.position = spawnPoints[i].position;
+                    fruit.SetActive(true);
+                }
+                //Instantiate(fruitPrefab, spawnPoints[i].position, Quaternion.identity); //Crea un objeto en la posicion del objeto asignado en la lista, dependiendo del valor de i
             }
         }
     }

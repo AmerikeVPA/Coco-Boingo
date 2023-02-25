@@ -6,6 +6,10 @@ public class FruitLogic : MonoBehaviour
 {
     int bounceCount = 0;
     public int countScore = 0;
+    private void Update()
+    {
+        FruitDeath();
+    }
     void FruitDeath()
     {
         if(bounceCount == 2)

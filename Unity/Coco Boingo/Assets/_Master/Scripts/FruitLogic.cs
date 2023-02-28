@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class FruitLogic : MonoBehaviour
 {
-    int bounceCount = 0;
+    public int bounceCount = 0;
     public int countScore = 0;
     private void Update()
     {

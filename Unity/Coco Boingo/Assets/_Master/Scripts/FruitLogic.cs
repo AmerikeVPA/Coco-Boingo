@@ -1,29 +1,33 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class FruitLogic : MonoBehaviour
 {
-    public int bounceCount = 0;
-    public int countScore = 0;
-    private void Update()
+    public int fruitScore = 0;
+    public bool vegetable;
+    private GameManager manager;
+    private int bounces = 0;
+
+    private void Awake()
     {
-        FruitDeath();
+        manager = FindObjectOfType<GameManager>();
     }
     void FruitDeath()
     {
-        if(bounceCount == 2)
-        {
-            gameObject.SetActive(false);
-        }
+        gameObject.SetActive(false);
     }
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.tag == "Basket")
         {
-            countScore++;
-            Debug.Log(countScore);
+            manager.AddScore(fruitScore);
+            if (vegetable) manager.TakeLife();
+            FruitDeath();
+            return;
         }
-        bounceCount++;
+        bounces++;
+        if(bounces > 2) FruitDeath();
     }
 }

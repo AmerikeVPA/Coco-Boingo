@@ -6,7 +6,7 @@ using UnityEngine;
 public class FruitLogic : MonoBehaviour
 {
     public int fruitScore = 0;
-    public bool vegetable;
+    public bool vegetable, avocado;
     private GameManager manager;
     private int bounces = 0;
 
@@ -24,6 +24,7 @@ public class FruitLogic : MonoBehaviour
         {
             manager.AddScore(fruitScore);
             if (vegetable) manager.TakeLife();
+            if (avocado) manager.AddLife();
             FruitDeath();
             return;
         }

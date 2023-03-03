@@ -18,7 +18,15 @@ public class GameManager : MonoBehaviour
     public void TakeLife()
     {
         lives--;
-        Destroy(lifeSprites[lives].gameObject);
+        lifeSprites[lives].gameObject.SetActive(false);
+    }
+    public void AddLife()
+    {
+        if (lives < 3)
+        {
+            lives++;
+            lifeSprites[lives].gameObject.SetActive(true);
+        }
     }
     IEnumerator ShowScore()
     {

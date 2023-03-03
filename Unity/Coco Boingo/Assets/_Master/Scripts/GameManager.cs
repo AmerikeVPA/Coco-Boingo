@@ -9,7 +9,11 @@ public class GameManager : MonoBehaviour
     public TextMeshProUGUI scoreTxt;
     public List<Image> lifeSprites;
     public int lives = 3;
-    private int score;
+    private int score = 0;
+    private void Start()
+    {
+        StartCoroutine(ShowScore());
+    }
     public void AddScore(int scoreToAdd)
     {
         score+= scoreToAdd;

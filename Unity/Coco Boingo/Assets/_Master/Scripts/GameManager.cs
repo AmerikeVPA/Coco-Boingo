@@ -6,13 +6,21 @@ using TMPro;
 
 public class GameManager : MonoBehaviour
 {
+    private void Awake()
+    {
+        obj = this;
+    }
+    public static GameManager obj;
     public TextMeshProUGUI scoreTxt;
     public List<Image> lifeSprites;
     public int lives = 3;
     private int score = 0;
+    public GameObject panel;
     private void Start()
     {
         StartCoroutine(ShowScore());
+        Time.timeScale = 1;
+
     }
     public void AddScore(int scoreToAdd)
     {
@@ -23,6 +31,11 @@ public class GameManager : MonoBehaviour
     {
         lives--;
         lifeSprites[lives].gameObject.SetActive(false);
+        if(lives  >= 0)
+        {
+            panel.SetActive(true);
+            Time.timeScale = 0;
+        }
     }
     public void AddLife()
     {
@@ -36,5 +49,9 @@ public class GameManager : MonoBehaviour
     {
         yield return null;
         scoreTxt.text = score.ToString();
+    }
+    private void OnDestroy()
+    {
+        obj = null;
     }
 }

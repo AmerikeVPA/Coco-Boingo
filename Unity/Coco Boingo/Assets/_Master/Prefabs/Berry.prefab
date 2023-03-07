@@ -76,8 +76,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c9384e7de29d79e4a93acb4b295e76db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bounceCount: 0
-  countScore: 0
+  fruitScore: 15
+  vegetable: 0
+  avocado: 0
+  limitY: -20
 --- !u!1001 &3067551780964793866
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Events;
 using TMPro;
 
 public class GameManager : MonoBehaviour
@@ -16,6 +17,7 @@ public class GameManager : MonoBehaviour
     public int lives = 3;
     private int score = 0;
     public GameObject panel;
+    public UnityEvent defeat;
     private void Start()
     {
         StartCoroutine(ShowScore());
@@ -31,10 +33,11 @@ public class GameManager : MonoBehaviour
     {
         lives--;
         lifeSprites[lives].gameObject.SetActive(false);
-        if(lives  >= 0)
+        if(lives <= 0)
         {
-            panel.SetActive(true);
             Time.timeScale = 0;
+            panel.SetActive(true);
+            defeat.Invoke();
         }
     }
     public void AddLife()

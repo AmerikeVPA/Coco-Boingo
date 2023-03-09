@@ -38,6 +38,7 @@ public class GameManager : MonoBehaviour
             Time.timeScale = 0;
             panel.SetActive(true);
             defeat.Invoke();
+            AudioManager.obj.playHit();
         }
     }
     public void AddLife()

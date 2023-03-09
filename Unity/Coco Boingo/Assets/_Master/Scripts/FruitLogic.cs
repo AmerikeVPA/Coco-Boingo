@@ -34,6 +34,7 @@ public class FruitLogic : MonoBehaviour
             manager.AddScore(fruitScore);   
             if (vegetable) manager.TakeLife();
             if (avocado) manager.AddLife();
+            AudioManager.obj.playShot();
             FruitDeath();
             return;
         }
